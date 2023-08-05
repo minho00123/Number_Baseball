@@ -13,33 +13,48 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 class="title">⚾️ Number Baseball ⚾️</h1>
-    <button class="game-start-btn">Game Start</button>
-    <div class="game-wrapper">
-      <div class="number-input-container">
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
+    <div class="wrapper">
+      <h1 class="title">⚾️ Number Baseball ⚾️</h1>
+      <button class="game-start-btn btn">Game Start</button>
+      <div class="game-wrapper">
+        <div class="number-input-container">
+          <input type="text" />
+          <input type="text" />
+          <input type="text" />
+        </div>
+        <div class="board-wrapper">
+          <div class="score-board-text-container">
+            <div class="score-text">S</div>
+            <div class="score-text">B</div>
+            <div class="score-text">O</div>
+          </div>
+          <div class="score-board-container">
+            <div class="strike-board board">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="ball-board board">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+            <div class="out-board board">
+              <div class="circle"></div>
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </div>
+          <p class="attempts">
+            Attempts : <span class="attempt-cnt">2</span> / 10
+          </p>
+        </div>
       </div>
-      <div class="score-board-container">
-        <p class="strike-board">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </p>
-        <p class="ball-board">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </p>
-        <p class="out-board">
-          <div class="circle"></div>
-          <div class="circle"></div>
-          <div class="circle"></div>
-        </p>
+      <div class="retry-container">
+        <p class="success result-text">🎉 You Win! 🎉</p>
+        <p class="game-over result-text">Game Over</p>
+        <button class="retry-btn btn">Retry</button>
       </div>
-      <p>Attempts : 2 / 10</p>
-      <button class="retry-btn">Retry</button>
     </div>
     <script src="index.js"></script>
   </body>
