@@ -5,10 +5,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Number Baseball</title>
+    <!-- Meyer Reset CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    Hello, World!
+    <h1 class="title">⚾️ Number Baseball ⚾️</h1>
+    <button class="game-start-btn">Game Start</button>
+    <div class="game-wrapper">
+      <div class="number-input-container">
+        <input type="text" />
+        <input type="text" />
+        <input type="text" />
+      </div>
+      <div class="score-board-container">
+        <p class="strike-board">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </p>
+        <p class="ball-board">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </p>
+        <p class="out-board">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </p>
+      </div>
+      <p>Attempts : 2 / 10</p>
+      <button class="retry-btn">Retry</button>
+    </div>
     <script src="index.js"></script>
   </body>
 </html>

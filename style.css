@@ -1,3 +1,7 @@
+/* Google Fonts: Noto Sans 400 & 900 italic */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;1,900&display=swap");
+
+/* Common */
 * {
-  background-color: red;
+  font-family: "Noto Sans", sans-serif;
 }
