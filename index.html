@@ -16,33 +16,31 @@
     <div class="wrapper">
       <h1 class="title">⚾️ Number Baseball ⚾️</h1>
       <button class="game-start-btn btn">Game Start</button>
-      <div class="game-wrapper">
+      <div class="game-wrapper hide">
         <div class="number-input-container">
-          <input type="text" />
-          <input type="text" />
-          <input type="text" />
+          <input type="text" class="num1" maxlength="1" />
+          <input type="text" class="num2" maxlength="1" />
+          <input type="text" class="num3" maxlength="1" />
         </div>
         <div class="board-wrapper">
-          <div class="score-board-text-container">
-            <div class="score-text">S</div>
-            <div class="score-text">B</div>
-            <div class="score-text">O</div>
-          </div>
           <div class="score-board-container">
             <div class="strike-board board">
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
+              <div class="score-text">S</div>
+              <div class="circle strike0"></div>
+              <div class="circle strike1"></div>
+              <div class="circle strike2"></div>
             </div>
             <div class="ball-board board">
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
+              <div class="score-text">B</div>
+              <div class="circle ball0"></div>
+              <div class="circle ball1"></div>
+              <div class="circle ball2"></div>
             </div>
             <div class="out-board board">
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
+              <div class="score-text">O</div>
+              <div class="circle out0"></div>
+              <div class="circle out1"></div>
+              <div class="circle out2"></div>
             </div>
           </div>
           <p class="attempts">
@@ -50,7 +48,7 @@
           </p>
         </div>
       </div>
-      <div class="retry-container">
+      <div class="result-container hide">
         <p class="success result-text">🎉 You Win! 🎉</p>
         <p class="game-over result-text">Game Over</p>
         <button class="retry-btn btn">Retry</button>
