@@ -6,6 +6,7 @@ const strikeCircles = document.querySelector(".strike-board").children;
 const ballCircles = document.querySelector(".ball-board").children;
 const outCircles = document.querySelector(".out-board").children;
 const inputs = document.querySelector(".number-input-container").children;
+const howToPlayIcon = document.querySelector(".how-to-play-icon");
 
 // Change the Screen when the game starts + make answer
 let answer = [];
