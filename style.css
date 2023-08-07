@@ -7,6 +7,7 @@
   color: #0d0d0d;
   font-weight: 600;
   text-shadow: 1px 1px 1px #595959;
+  box-sizing: border-box;
 }
 
 .title {
@@ -35,6 +36,10 @@
 
 .btn:active {
   transform: translateY(2px);
+}
+
+.flex {
+  display: flex;
 }
 
 /*----- Setting Background Image -----*/
@@ -91,6 +96,144 @@
 
 .how-to-play-btn:active {
   transform: translateY(2px);
+}
+
+/*----- Tutorial Section -----*/
+
+.tutorial-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tutorial-input {
+  border: 3px solid #072bf2;
+}
+
+.tutorial-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.input-desc:first-child {
+  margin-right: 28px;
+}
+
+.input-desc:last-child {
+  margin-left: 28px;
+}
+
+.input-desc {
+  border: 3px solid #072bf2;
+}
+
+.input-desc-line {
+  height: 64px;
+  background-color: #072bf2;
+}
+
+.tutorial-board-wrapper {
+  margin-top: 20px;
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-desc-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 300px;
+}
+
+.tutorial-score-board-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #7bbf15;
+  border-radius: 10px;
+  width: 400px;
+  height: 300px;
+  border: 3px solid #0d0d0d;
+}
+
+.desc-text {
+  font-size: 1.3rem;
+  background-color: #f2f2f2;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.desc-line {
+  width: 4px;
+  transform: rotate(90deg);
+}
+
+.strike-desc {
+  margin-left: 25px;
+  border: 3px solid #f2b705;
+}
+
+.strike-desc-line {
+  margin: 0 25px;
+  background-color: #f2b705;
+}
+
+.ball-desc {
+  margin-left: 10px;
+  border: 3px solid #147346;
+}
+
+.ball-desc-line {
+  margin: 0 25px;
+  background-color: #147346;
+}
+
+.out-desc {
+  border: 3px solid #f20505;
+}
+
+.out-desc-line {
+  margin: 0 25px;
+  background-color: #f20505;
+}
+
+.score-board-desc-container {
+  display: flex;
+  justify-content: center;
+}
+
+.score-desc-line {
+  margin: 0 25px;
+  background-color: #0d0d0d;
+}
+
+.score-desc {
+  border: 3px solid #0d0d0d;
+}
+
+.tutorial-innings-wrapper {
+  margin-left: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inning-desc-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inning-desc-line {
+  margin: 0 28px;
+  height: 64px;
+  background-color: #0d0d0d;
+}
+
+.inning-desc {
+  border: 3px solid #0d0d0d;
 }
 
 /*----- Game Wrapper -----*/
@@ -158,23 +301,51 @@ input {
   box-shadow: 1px 1px 5px #595959;
 }
 
-.attempts {
-  background: #0d0d0d;
-  color: #f2f2f2;
-  width: 405px;
-  height: 40px;
-  font-size: 1.7rem;
-  margin: 20px 0;
-  border-radius: 10px;
+.innings-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.attempt-cnt {
-  font-style: italic;
-  color: #a7f205;
-  padding: 0 10px;
+.innings-container {
+  margin-top: 20px;
+  background: #0d0d0d;
+  width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.inning-table {
+  width: 380px;
+  text-align: center;
+}
+
+.inning-title,
+.inning-score {
+  height: 30px;
+}
+
+.inning-text {
+  width: 90px;
+}
+
+th,
+td {
+  text-shadow: none;
+  vertical-align: middle;
+  font-size: 1.3rem;
+  border: 1px solid #f2f2f2;
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: 400;
+  color: #a6a6a6;
+}
+
+td {
+  color: #f2f2f2;
+  font-weight: 900;
 }
 
 /*----- Result Section -----*/

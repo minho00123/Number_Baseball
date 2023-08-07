@@ -1,12 +1,12 @@
 // Grab elements
 const gameStartBtn = document.querySelector(".game-start-btn");
+const howToPlayIcon = document.querySelector(".how-to-play-btn");
 const gameWrapper = document.querySelector(".game-wrapper");
 const resultContainer = document.querySelector(".result-container");
 const strikeCircles = document.querySelector(".strike-board").children;
 const ballCircles = document.querySelector(".ball-board").children;
 const outCircles = document.querySelector(".out-board").children;
 const inputs = document.querySelector(".number-input-container").children;
-const howToPlayIcon = document.querySelector(".how-to-play-icon");
 
 // Change the Screen when the game starts + make answer
 let answer = [];
@@ -34,6 +34,7 @@ function makeRandomNumber() {
 gameStartBtn.addEventListener("click", function () {
   gameStartBtn.classList.add("hide");
   gameWrapper.classList.remove("hide");
+  howToPlayIcon.removeAttribute("hidden");
   makeRandomNumber();
 });
 
