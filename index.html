@@ -18,13 +18,11 @@
       <h1 class="title">⚾️ Number Baseball ⚾️</h1>
 
       <!-- Game Start Button -->
-      <button class="game-start-btn btn hide">Game Start</button>
-
-      <!-- How to Play Button -->
-      <button class="how-to-play-btn" hidden><p>📖</p></button>
+      <button class="game-start-btn btn">Game Start</button>
 
       <!-- Tutorial Section -->
-      <div class="tutorial-wrapper">
+      <button class="tutorial-btn" hidden><p>➡️</p></button>
+      <div class="tutorial-wrapper hide">
         <div class="tutorial-input-container">
           <div class="input-desc desc-text">
             Type a number on each boxes.
@@ -37,7 +35,8 @@
           <input type="text" class="tutorial-input" value="9" />
           <div class="input-desc-line desc-line"></div>
           <div class="input-desc desc-text">
-            The number should not be overlapped.
+            The number should not be overlapped. <br>
+            Press the ENTER key to check the answer.
           </div>
         </div>
         <div class="tutorial-board-wrapper">
@@ -113,7 +112,7 @@
                 <th>9</th>
               </thead>
               <tbody class="inning-score">
-                <td>Strikes</td>
+                <td>Score</td>
                 <td>0</td>
                 <td>1</td>
                 <td></td>
@@ -137,37 +136,66 @@
       </div>
 
       <!-- Game Play Section -->
+
+      <button class="how-to-play-btn" hidden><p>📖</p></button>
+
       <div class="game-wrapper hide">
         <div class="number-input-container">
-          <input type="text" class="num1" maxlength="1" />
-          <input type="text" class="num2" maxlength="1" />
-          <input type="text" class="num3" maxlength="1" />
+          <input type="number" class="num1" min="0" max="9" maxlength="1"/>
+          <input type="number" class="num2" min="0" max="9" maxlength="1"/>
+          <input type="number" class="num3" min="0" max="9" maxlength="1"/>
         </div>
         <div class="board-wrapper">
           <div class="score-board-container">
-            <div class="strike-board board">
+            <div class="strike-board board strike-numbers">
               <div class="score-text">S</div>
               <div class="circle strike0"></div>
               <div class="circle strike1"></div>
               <div class="circle strike2"></div>
             </div>
-            <div class="ball-board board">
+            <div class="ball-board board ball-numbers">
               <div class="score-text">B</div>
               <div class="circle ball0"></div>
               <div class="circle ball1"></div>
               <div class="circle ball2"></div>
             </div>
-            <div class="out-board board">
+            <div class="out-board board out-numbers">
               <div class="score-text">O</div>
               <div class="circle out0"></div>
               <div class="circle out1"></div>
               <div class="circle out2"></div>
             </div>
           </div>
-          <p class="attempts">
-            Attempts : <span class="attempt-cnt">2</span> / 10
-          </p>
         </div>
+        <div class="innings-wrapper">
+          <div class="innings-container">
+            <table class="inning-table">
+              <thead class="inning-title">
+                <th class="inning-text">Inning</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+              </thead>
+              <tbody class="inning-score">
+                <td>Score</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tbody>
+            </table>
+          </div>
       </div>
       <div class="result-container hide">
         <p class="success result-text">🎉 You Win! 🎉</p>

@@ -100,6 +100,33 @@
 
 /*----- Tutorial Section -----*/
 
+.tutorial-btn {
+  position: absolute;
+  top: 65px;
+  right: 100px;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+}
+
+.tutorial-btn:hover > p {
+  display: none;
+}
+
+.tutorial-btn:hover::after {
+  content: "Go Back";
+  position: absolute;
+  font-size: 1.2rem;
+  top: 10px;
+  right: -50px;
+  color: #595959;
+  width: 150px;
+}
+
+.tutorial-btn:active {
+  transform: translateY(2px);
+}
+
 .tutorial-wrapper {
   display: flex;
   flex-direction: column;
@@ -113,6 +140,7 @@
 .tutorial-input-container {
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
 
 .input-desc:first-child {
@@ -214,7 +242,7 @@
 }
 
 .tutorial-innings-wrapper {
-  margin-left: 420px;
+  margin-left: 417px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -260,6 +288,19 @@ input {
   text-align: center;
   font-size: 2rem;
   box-shadow: 2px 2px 7px #595959;
+}
+
+/* *Remove arrows keys in input number */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 /*----- Score Board -----*/

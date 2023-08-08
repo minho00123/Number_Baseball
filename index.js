@@ -1,11 +1,14 @@
 // Grab elements
 const gameStartBtn = document.querySelector(".game-start-btn");
 const howToPlayIcon = document.querySelector(".how-to-play-btn");
+const tutorialPage = document.querySelector(".tutorial-wrapper");
+const tutorialBtn = document.querySelector(".tutorial-btn");
 const gameWrapper = document.querySelector(".game-wrapper");
 const resultContainer = document.querySelector(".result-container");
-const strikeCircles = document.querySelector(".strike-board").children;
-const ballCircles = document.querySelector(".ball-board").children;
-const outCircles = document.querySelector(".out-board").children;
+const strikeCircles = document.querySelector(".strike-numbers").children;
+const ballCircles = document.querySelector(".ball-numbers").children;
+const outCircles = document.querySelector(".out-numbers").children;
+
 const inputs = document.querySelector(".number-input-container").children;
 
 // Change the Screen when the game starts + make answer
@@ -31,86 +34,92 @@ function makeRandomNumber() {
   }
 }
 
+// Change to the game mode when click the start button
 gameStartBtn.addEventListener("click", function () {
   gameStartBtn.classList.add("hide");
   gameWrapper.classList.remove("hide");
   howToPlayIcon.removeAttribute("hidden");
   makeRandomNumber();
+  playGame();
+  inputs[0].focus();
+});
+
+// Go to tutorial page when the user clicks 'How to Play' button
+howToPlayIcon.addEventListener("click", function () {
+  gameWrapper.classList.add("hide");
+  tutorialPage.classList.remove("hide");
+  howToPlayIcon.setAttribute("hidden", "");
+  tutorialBtn.removeAttribute("hidden", "");
+  inputs[0].focus();
+});
+
+// Go to tutorial page when the user clicks 'Go back' button
+tutorialBtn.addEventListener("click", function () {
+  tutorialPage.classList.add("hide");
+  gameWrapper.classList.remove("hide");
+  tutorialBtn.setAttribute("hidden", "");
+  howToPlayIcon.removeAttribute("hidden", "");
+  inputs[0].focus();
 });
 
 // Get User's input numbers
-let userNum = [];
 
-function isNumber(key, keyCode) {
-  if (keyCode == 32) {
-    return false;
-  } else if (Number.isInteger(Number(key))) {
-    return true;
-  } else if (keyCode === " ") {
-    return false;
-  } else if (keyCode >= 48 && keyCode <= 57) {
-    return false;
-  } else if (keyCode >= 65 && keyCode <= 90) {
-    return false;
-  } else if (keyCode >= 186 && keyCode <= 192) {
-    return false;
-  } else if (keyCode >= 219 && keyCode <= 222) {
-    return false;
+function playGame(cntStrikes, cntBalls, cntOuts) {
+  let userNumbers = [];
+
+  for (let i = 0; i < 3; i++) {
+    inputs[i].addEventListener("keyup", function (e) {
+      if (this.value.length === this.maxLength) {
+        userNumbers.push(Number(this.value));
+        if (i !== 2) {
+          inputs[i + 1].focus();
+        }
+      } else {
+        alert("Write only one number");
+        this.value = "";
+      }
+    });
   }
-}
 
-for (let i = 0; i < 3; i++) {
-  inputs[i].addEventListener("keydown", function (e) {
-    let key = e.key;
-    const checkIsNumber = isNumber(key, e.keyCode);
-    if (checkIsNumber) {
-      userNum.push(Number(key));
-      if (userNum.length > i + 1) {
-        userNum.pop();
+  // Count the strikes, balls, and outs
+  document.addEventListener("keyup", function (e) {
+    if (e.key === "Enter") {
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          if (i === j && userNumbers[i] === answer[j]) {
+            cntStrikes++;
+          } else if (userNumbers[i] === answer[j]) {
+            cntBalls++;
+          }
+        }
       }
-      if (!isSame(Number(key), userNum)) {
-        alert("The same number is found. Please write again!");
-        userNum.pop();
+
+      cntOuts = 3 - cntStrikes - cntBalls;
+
+      for (let i = 1; i < cntStrikes + 1; i++) {
+        strikeCircles[i].style.backgroundColor = "#f2b705";
       }
-    } else if (checkIsNumber === false) {
-      alert("Please write a number!");
+      for (let i = 1; i < cntBalls + 1; i++) {
+        ballCircles[i].style.backgroundColor = "#147346";
+      }
+      for (let i = 1; i < cntOuts + 1; i++) {
+        outCircles[i].style.backgroundColor = "#f20505";
+      }
     }
   });
+
+  userNumbers = [];
+  inputs[0].focus();
 }
 
-// Check the strikes, balls, and outs
-let strikeIdx = [];
-let gameCnt = 0;
+let gameCnt = 1;
 
-inputNum3.addEventListener("keydown", function (e) {
-  if (e.keyCode === 13 && userNum.length === 3) {
-    let i = 0;
-    let j = 0;
-    while (i < 3) {
-      if (userNum[i] === answer[j] && i === j) {
-        strikeCircles[i].style.backgroundColor = "#F2BB13";
-        strikeIdx.push(i);
-        inputs[i].setAttribute("disabled", "");
-        i++;
-        j = 0;
-      } else if (userNum[i] === answer[j]) {
-        ballCircles[i].style.backgroundColor = "#A7D9B3";
-        inputs[i].value = "";
-        i++;
-        j = 0;
-      } else {
-        j++;
-      }
+while (gameCnt < 11) {
+  let cntStrikes = 0;
+  let cntBalls = 0;
+  let cntOuts = 0;
+  playGame(cntStrikes, cntBalls, cntOuts);
+  console.log(cntStrikes, cntBalls, cntOuts);
 
-      if (j === 2) {
-        outCircles[i].style.backgroundColor = "#BF0404";
-        inputs[i].value = "";
-        i++;
-        j = 0;
-      }
-    }
-  }
   gameCnt++;
-});
-
-// while (gameCnt != 10) {}
+}
